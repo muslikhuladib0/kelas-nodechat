@@ -14,9 +14,15 @@ app.get('/', (req, res) => {
     // send chat
      socket.on('newMessage', (msg) => {
          io.emit('newMessage', msg)
-
-    
      })
+
+     // login
+     // detect informasi dari client side key , value
+     socket.on('loginUser', username => {
+     socket.emit('loginResponse', true)
+       
+     })
+
   });
   
   http.listen(3000, () => {
