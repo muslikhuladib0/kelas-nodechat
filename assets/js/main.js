@@ -11,6 +11,13 @@ $('#submit_name').submit(e => {
         showValidate($('#username'))
         $('.danger').removeClass('hidden')
         $('.danger').text('username kosong')
+        // $('#cobaLagi').removeClass('hidden')
+        // $('#cobaLagi').addClass('gagal')
+        // $('.login100-form-btn').append(' Lagi')
+    } else if (/\s/.test(username)) {
+        showValidate($('#username'))
+        $('.danger').removeClass('hidden')
+        $('.danger').text('username mengandung spasi..isi woy minta &nbsp; ditampol po..')
     } else {
         // kirim data username keserver
         // dengan membuat key and value
@@ -30,3 +37,12 @@ const showValidate = input => {
 
     $(alert).addClass('alert-validate')
 }
+
+// masih belum work
+
+// $('.reset').submit(e1 => {
+//     e1.preventDefault('.reset')
+//     var username1 = $('#username').val()
+
+//     $(username1).reset()
+// })
