@@ -34,8 +34,15 @@ app.get('/', (req, res) => {
      // kirim data untuk kita sendiri
      socket.emit('loginResponse', true)
             })
-  });
+
+            // chat message
+            socket.on('newMessage', msg => {
+              io.emit('newMassage', msg )
+            })
+
+          });
   
   http.listen(3000, () => {
     console.log('listening on *:3000');
   });
+
